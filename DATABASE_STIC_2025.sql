@@ -1,3 +1,7 @@
+CREATE DATABASE STIC2025
+GO
+USE STIC2025
+GO
 CREATE TABLE Branch(
 BranchId int primary key identity(1,1),
 Description varchar(100) not null,
