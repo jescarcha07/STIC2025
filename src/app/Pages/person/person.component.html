@@ -1,0 +1,84 @@
+<mat-card style="width: 70%;margin: 50px auto;color: #000; background-color: #fff;" >
+    <mat-card-header>
+        <mat-card-title>
+            <p>Person List</p>
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <button mat-flat-button  (click)="Add()" >New Person</button>
+        <table  mat-table [dataSource]="listPerson" class="mat-elevation-z2" style="margin-top: 20px;background-color: #fff;">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container style="color: #000;" matColumnDef="PersonId">
+              <th mat-header-cell *matHeaderCellDef> Id. </th>
+              <td mat-cell *matCellDef="let element"> {{element.personId}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="BranchId">
+              <th mat-header-cell *matHeaderCellDef> Branch </th>
+              <td mat-cell *matCellDef="let element"> {{element.branchId}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="DocumentId">
+              <th mat-header-cell *matHeaderCellDef> DocumentId </th>
+              <td mat-cell *matCellDef="let element"> {{element.documentId}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Names">
+              <th mat-header-cell *matHeaderCellDef> Names </th>
+              <td mat-cell *matCellDef="let element"> {{element.names}} </td>
+            </ng-container>
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="LastNames">
+            <th mat-header-cell *matHeaderCellDef> LastNames </th>
+            <td mat-cell *matCellDef="let element"> {{element.lastNames}} </td>
+            </ng-container>
+            <ng-container matColumnDef="Email">
+                <th mat-header-cell *matHeaderCellDef> Email </th>
+                <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+              </ng-container>
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="Address">
+                    <th mat-header-cell *matHeaderCellDef> Address </th>
+                    <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+                  </ng-container>
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="DateOfBirth">
+                    <th mat-header-cell *matHeaderCellDef> DateOfBirth </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dateOfBirth}} </td>
+                  </ng-container>
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef> Gender </th>
+                    <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+                  </ng-container>
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="Status">
+                        <th mat-header-cell *matHeaderCellDef> Status </th>
+                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                      </ng-container>
+                   <!-- Symbol Column -->
+                   <ng-container matColumnDef="Action">
+                    <th mat-header-cell *matHeaderCellDef></th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-fab (click)="edit(element)">
+                            <mat-icon>edit</mat-icon>
+                          </button>
+                          <button mat-fab (click)="edit(element)">
+                            <mat-icon>delete</mat-icon>
+                          </button> 
+                    </td>
+                  </ng-container>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>
+    </mat-card-content>
+
+    
+  </mat-card>
